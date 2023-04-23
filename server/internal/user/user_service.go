@@ -11,8 +11,8 @@ type service struct {
 	timeout time.Duration
 }
 
-func NewService(repository Repository) service {
-	return service{
+func NewService(repository Repository) Service {
+	return &service{
 		repository,
 		time.Duration(2) * time.Second,
 	}
