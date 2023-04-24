@@ -19,7 +19,8 @@ func NewService(repository Repository) Service {
 }
 
 func (s *service) CreateUser(c context.Context, req *CreateUserReq) (*CreateUserRes, error) {
-	ctx, _ := context.WithTimeout(c, s.timeout)
+	ctx, cancel := context.WithTimeout(c, s.timeout)
+	defer cancel()
 
 	u := &User{
 		Username: req.Username,
