@@ -16,7 +16,7 @@ type repository struct {
 	db DBTX
 }
 
-func newRepository(db DBTX) Repository {
+func NewRepository(db DBTX) Repository {
 	return &repository{db: db}
 
 }
