@@ -23,7 +23,7 @@ func NewRepository(db DBTX) Repository {
 
 func (r *repository) CreateUser(ctx context.Context, user *User) (*User, error) {
 	var lastId int
-	query := "INSERT INTO users(username,password,email) values ($1,$2,$3) returning id"
+	query := "INSERT INTO users(username,password,email) values ($1,$2,$3) returning user_id"
 	err := r.db.QueryRowContext(ctx, query, user.Username, user.Password, user.Email).Scan(&lastId)
 	if err != nil {
 		return &User{}, err
