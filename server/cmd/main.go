@@ -30,12 +30,4 @@ func main() {
 	router.InitRouter(userHandler, wsHandler)
 	router.Start("0.0.0.0:8080")
 
-	// m, err := migrate.NewWithDatabaseInstance(
-	// 	"file:///migrations",
-	// 	"postgres", driver)
-	// m.Up()
-	// if err != nil {
-	// 	log.Fatalf("Could not initialize db connection %s", err)
-	// }
-
 }
