@@ -4,6 +4,7 @@ import (
 	"log"
 	"server/db"
 	"server/internal/user"
+	"server/internal/ws"
 	"server/router"
 
 	_ "github.com/golang-migrate/migrate/v4/source/file"
@@ -22,7 +23,11 @@ func main() {
 	userServ := user.NewService(userRep)
 	userHandler := user.NewHandler(userServ)
 
-	router.InitRouter(userHandler)
+	hub := ws.NewHub()
+	wsHandler := ws.NewHandler(hub)
+	go hub.Run()
+
+	router.InitRouter(userHandler, wsHandler)
 	router.Start("0.0.0.0:8080")
 
 	// m, err := migrate.NewWithDatabaseInstance(
