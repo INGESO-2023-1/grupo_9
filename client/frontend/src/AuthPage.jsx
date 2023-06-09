@@ -4,17 +4,45 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import * as Unicons from '@iconscout/react-unicons';
 
-
 const AuthPage = (props) => {
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const { value } = e.target[0];
-    axios
-      .post("http://localhost:3001/authenticate", { username: value })
-      .then((r) => props.onAuth({ ...r.data, secret: value }))
-      .catch((e) => console.log("Auth Error", e));
-  };
 
+	// login
+	const onSubmit1 = (e) => {
+		e.preventDefault();
+		const signemail = e.target.signemail.value;
+		const signpass = e.target.signpass.value;
+    	axios
+      		.post("http://localhost:8080/login", { email: signemail, password: signpass })
+      		.then((response) => {
+				const { data } = response;
+				const user = {
+					id: data.id,
+					username: data.username,
+				};
+	  		})
+      		.catch((e) => console.log("Auth Error", e));
+  	};
+
+	// signup
+  	const onSubmit2 = (e) => {
+    	e.preventDefault();
+    	const signname = e.target.signname.value;
+		const signemail = e.target.signemail.value;
+		const signpass = e.target.signpass.value;
+    	axios
+      		.post("http://localhost:8080/signup", { username: signname, email: signemail, password: signpass })
+      		.then((response) => {
+				const { data } = response;
+				const user = {
+					id: data.id,
+					username: data.username,
+					email: data.email
+				};
+	  		})
+      		.catch((e) => console.log("Auth Error", e));
+  	};
+
+  
   return (
     <body id="body1">
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release-pro/v4.0.0/css/solid.css"></link>
@@ -32,15 +60,17 @@ const AuthPage = (props) => {
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Log In</h4>
-											<div class="form-group">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
-												<i class="input-icon uil uil-at"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
-												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
-                        <a href="#" class="btn mt-4 btn-light">submit</a>
+												<form id="form-login" onSubmit={onSubmit1}>
+													<div class="form-group">
+														<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+														<i class="input-icon uil uil-at"></i>
+													</div>	
+													<div class="form-group mt-2">
+														<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+														<i class="input-icon uil uil-lock-alt"></i>
+													</div>
+                        							<button className="auth-button" class="btn mt-4 btn-light" type="submit">submit</button>
+												</form>
                         <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
 				      					</div>
 			      					</div>
@@ -49,19 +79,21 @@ const AuthPage = (props) => {
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Sign Up</h4>
-											<div class="form-group">
-												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off"/>
-												<i class="input-icon uil uil-user"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
-												<i class="input-icon uil uil-at"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
-												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
-											<a href="#" class="btn mt-4 btn-light">submit</a>
+												<form id="form-sign" onSubmit={onSubmit2}>
+													<div class="form-group">
+														<input type="text" name="signname" class="form-style" placeholder="Your Full Name" id="signname" autocomplete="off"/>
+														<i class="input-icon uil uil-user"></i>
+													</div>	
+													<div class="form-group mt-2">
+														<input type="email" name="signemail" class="form-style" placeholder="Your Email" id="signemail" autocomplete="off"/>
+														<i class="input-icon uil uil-at"></i>
+													</div>	
+													<div class="form-group mt-2">
+														<input type="password" name="signpass" class="form-style" placeholder="Your Password" id="signpass" autocomplete="off"/>
+														<i class="input-icon uil uil-lock-alt"></i>
+													</div>
+													<button className="auth-button" class="btn mt-4 btn-light" type="submit">submit</button>
+												</form>
 				      					</div>
 			      					</div>
 			      				</div>
