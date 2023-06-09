@@ -1,0 +1,8 @@
+- [x] Sign up
+- [x] Login
+- [x] Log out
+- [x] Create Room
+- [x] Join Room
+- [x] Get Room
+- [x] Get Users (Clients) in Room
+- [ ] Frontend POST
