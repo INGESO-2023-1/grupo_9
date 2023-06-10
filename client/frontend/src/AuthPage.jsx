@@ -9,10 +9,10 @@ const AuthPage = (props) => {
 	// login
 	const onSubmit1 = (e) => {
 		e.preventDefault();
-		const signemail = e.target.signemail.value;
-		const signpass = e.target.signpass.value;
+		const logemail = e.target.logemail.value;
+		const logpass = e.target.logpass.value;
     	axios
-      		.post("http://localhost:8080/login", { email: signemail, password: signpass })
+      		.post("http://localhost:8080/login", { email: logemail, password: logpass })
       		.then((response) => {
 				const { data } = response;
 				const user = {
@@ -36,7 +36,6 @@ const AuthPage = (props) => {
 				const user = {
 					id: data.id,
 					username: data.username,
-					email: data.email
 				};
 	  		})
       		.catch((e) => console.log("Auth Error", e));

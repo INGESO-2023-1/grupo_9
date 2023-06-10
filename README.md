@@ -5,4 +5,5 @@
 - [x] Join Room
 - [x] Get Room
 - [x] Get Users (Clients) in Room
-- [ ] Frontend POST
+- [x] Frontend Sign up to Backend funcionando
+- [x] Frontend Log in to Backend funcionando
