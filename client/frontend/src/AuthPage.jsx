@@ -17,7 +17,7 @@ const AuthPage = (props) => {
 				const { data } = response;
 				const user = {
 					id: data.id,
-					username: data.username,
+					username: data.username
 				};
 	  		})
       		.catch((e) => console.log("Auth Error", e));
@@ -36,6 +36,7 @@ const AuthPage = (props) => {
 				const user = {
 					id: data.id,
 					username: data.username,
+					email: data.email
 				};
 	  		})
       		.catch((e) => console.log("Auth Error", e));
