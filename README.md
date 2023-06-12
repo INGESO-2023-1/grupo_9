@@ -7,3 +7,4 @@
 - [x] Get Users (Clients) in Room
 - [x] Sign up response from backend to frontend ok
 - [x] Log in response from backend to frontend ok
+- [x] Crear sala, entrar, enviar y recibir mensajes
