@@ -1,10 +1,77 @@
-Como ejecutar el backend (server)  
-  
-1.- Instalar Docker desktop o terminal  
-2.- Instalar Go 1.20 o superior  
-3.- Ejecutar en terminal docker pull postgres:alpine-15 , para descargar imagen de postgres de docker  
-4.- Ejecutar make 'postgresinit' para chequear contenedor corriendo, 'exit' o '\q' para salir  
-5.- Ejecutar make 'postgres' para ejecutar imagen  
-6.- Ejecutar make 'createdb', para crear base de datos "go-chat", luego ejecutar make 'postgres' seguido de \l para chequear base de datos "go-chat" creada exitosamente, 'exit' o '\q' para salir  
-7.- Descargar el CLI migrate de golang desde https://github.com/golang-migrate/migrate/tree/master/cmd/migrate  
-8.- Ejecutar make 'migrarbdup' para crear tablas de base de datos  
+# Integrantes
+* Gonzalo Diaz  
+* Vicente Gaete  
+* Hugo Sepulveda  
+* Carlos Vega  
+
+**Ayudante:** Sebastian Cifuentes
+
+# Wiki
+Puede acceder a la Wiki mediante el siguiente [enlace](wiki).
+
+# Getting Started - Backend (server)
+
+## Requisitos
+* [Docker](https://docs.docker.com/)  
+* [Go](https://go.dev/)
+* [Migrate CLI](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate)
+
+Descargar imagen de postgres en docker ejecutando en la terminal:
+
+```
+docker pull postgres:alpine-15
+```
+## Levantar backend
+
+Ejecutar contenedor:
+```
+cd server
+```
+
+```
+make postgresinit
+make postgres
+## comprobar ejecución contenedor
+\q
+```
+
+
+Crear BD go-chat:
+```
+make createdb
+make postgres
+\l
+## comprobar creacion de bd go-chat
+\q
+```
+
+
+Crear tablas:
+```
+make migrarbdup
+```
+
+# Getting Started - Frontend (client)
+
+
+## Requisitos
+* [NodeJS](https://nodejs.org/es)
+
+Comprobar versiones de npm y node CLI:
+
+```
+npm -v
+```
+```
+node -v
+```
+## Levantar frontend
+
+
+```
+cd client
+```
+```
+npm run dev
+```
+Abrir [http://localhost:3000](http://localhost:3000) en un navegador para ver el proyecto.
