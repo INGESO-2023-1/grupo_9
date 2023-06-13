@@ -23,10 +23,10 @@ docker pull postgres:alpine-15
 ```
 ## Levantar backend
 
-Ejecutar contenedor:
 ```
 cd server
 ```
+Ejecutar contenedor:
 
 ```
 make postgresinit
