@@ -9,14 +9,14 @@
 # Wiki
 Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/INGESO-2023-1/grupo_9/wiki).
 
-# Getting Started - Backend (server)
+# Getting Started - Backend
 
 ## Requisitos
 * [Docker](https://docs.docker.com/)  
 * [Go](https://go.dev/)
 * [Migrate CLI](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate)
 
-Descargar imagen de postgres en docker ejecutando en la terminal:
+Descargar imagen de Docker de PostgreSQL ejecutando en la terminal:
 
 ```
 docker pull postgres:alpine-15
@@ -57,7 +57,7 @@ go run cmd/main.go
   
 Se mostrarán por la terminal los endpoint de la aplicación.
 
-# Getting Started - Frontend (client)
+# Getting Started - Frontend
 
 
 ## Requisitos
