@@ -7,7 +7,7 @@
 **Ayudante:** Sebastian Cifuentes
 
 # Wiki
-Puede acceder a la Wiki mediante el siguiente [enlace](wiki).
+Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/INGESO-2023-1/grupo_9/wiki).
 
 # Getting Started - Backend (server)
 
@@ -45,11 +45,17 @@ make postgres
 \q
 ```
 
-
 Crear tablas:
 ```
 make migrarbdup
 ```
+
+Ejecutar main:
+```
+go run cmd/main.go
+```  
+  
+Se mostrarán por la terminal los endpoint de la aplicación.
 
 # Getting Started - Frontend (client)
 
@@ -57,7 +63,7 @@ make migrarbdup
 ## Requisitos
 * [NodeJS](https://nodejs.org/es)
 
-Comprobar versiones de npm y node CLI:
+Comprobar instalación de npm y node CLI:
 
 ```
 npm -v
