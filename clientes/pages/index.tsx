@@ -35,10 +35,11 @@ const index = () => {
 
   const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault()
-
+    
     try {
+      console.log(uuidv4())
       setRoomName('')
-      const res = await fetch(`${API_URL}/ws/createRoom`, {
+      const res = await fetch(`http://localhost:8080/ws/createRoom`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

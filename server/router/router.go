@@ -14,12 +14,15 @@ var r *gin.Engine
 func InitRouter(userHandler *user.Handler, wsHandler *ws.Handler) {
 	r = gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
+		AllowOrigins:     []string{"http://localhost:3000"},
 		AllowMethods:     []string{"GET", "POST"},
 		AllowHeaders:     []string{"Content-Type"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
-		MaxAge:           12 * time.Hour,
+		AllowOriginFunc: func(origin string) bool {
+			return origin == "http://localhost:3000/"
+		},
+		MaxAge: 12 * time.Hour,
 	}))
 	r.POST("/singup", userHandler.CreateUser)
 	r.POST("/login", userHandler.Login)
