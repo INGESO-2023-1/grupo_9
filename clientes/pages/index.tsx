@@ -79,7 +79,8 @@ const index = () => {
 
       if (res.ok) {
         localStorage.removeItem('user_info');
-        router.push('/login');
+        window.location.reload();
+        //router.push('/login/bienvenida.tsx');
       }
     } catch (err) {
       console.log(err);
