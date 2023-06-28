@@ -68,9 +68,34 @@ const index = () => {
     }
   }
 
+  const logoutHandler = async (e: React.SyntheticEvent) => {
+    e.preventDefault()
+
+    try {
+      const res = await fetch(`${API_URL}/logout`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (res.ok) {
+        localStorage.removeItem('user_info');
+        router.push('/login');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+
   return (
     <>
       <div className='my-8 px-4 md:mx-32 w-full h-full'>
+      <button
+            className='bg-blue border text-white rounded-md p-2 md:ml-4'
+            onClick={logoutHandler}
+          >
+            logout
+          </button>
         <div className='flex justify-center mt-3 p-5'>
           <input
             type='text'
